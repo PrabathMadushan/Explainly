@@ -149,7 +149,8 @@
             margin-left: var(--sidebar-width);
             margin-top: 80px;
             padding: 2rem;
-            max-width: 900px;
+            display: flex;
+            flex: 1;
         }
 
         .content {
@@ -158,6 +159,8 @@
             border-radius: 1rem;
             border: 1px solid var(--border);
             min-height: calc(100vh - 140px);
+            flex: 1;
+            width: 100%;
         }
 
         /* Markdown Styles */
@@ -279,10 +282,16 @@
 
             .main {
                 margin-left: 0;
+                padding: 0;
+                margin-top: 70px;
             }
 
             .content {
-                padding: 1.5rem;
+                padding: 1rem;
+                border-radius: 0;
+                border: none;
+                border-top: 1px solid var(--border);
+                min-height: calc(100vh - 70px);
             }
 
             .header {
@@ -294,11 +303,24 @@
             }
 
             .content h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
             .content h2 {
-                font-size: 1.5rem;
+                font-size: 1.375rem;
+            }
+
+            .content h3 {
+                font-size: 1.125rem;
+            }
+
+            .content pre {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .content table {
+                font-size: 0.85rem;
             }
         }
 
@@ -480,7 +502,7 @@
         });
 
         // Load document function
-        async function loadDoc(path) {
+        async function loadDoc(path, clickedElement) {
             const content = document.getElementById('content');
             content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Loading content...</p></div>';
 
@@ -501,7 +523,11 @@
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.classList.remove('active');
                 });
-                event.target.classList.add('active');
+
+                // Add active class to clicked element if provided
+                if (clickedElement) {
+                    clickedElement.classList.add('active');
+                }
 
                 // Scroll to top
                 window.scrollTo(0, 0);
@@ -512,6 +538,7 @@
                 }
 
             } catch (error) {
+                console.log(error);
                 content.innerHTML = `
                     <div class="loading">
                         <h2 style="color: #ef4444;">❌ Error Loading Document</h2>
