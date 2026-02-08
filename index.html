@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -189,7 +190,8 @@
             color: var(--text-secondary);
         }
 
-        .content ul, .content ol {
+        .content ul,
+        .content ol {
             margin-left: 1.5rem;
             margin-bottom: 1rem;
             color: var(--text-secondary);
@@ -318,8 +320,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Scrollbar */
@@ -341,6 +348,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div>
@@ -352,7 +360,7 @@
 
     <div class="sidebar" id="sidebar">
         <input type="text" class="sidebar-search" placeholder="🔍 Search topics..." id="search" onkeyup="filterNav()">
-        
+
         <div class="nav-section">
             <div class="nav-section-title">
                 <span class="nav-section-icon">📖</span>
@@ -368,7 +376,8 @@
                 <span class="nav-section-icon">🎯</span>
                 <span>Behavioral & Leadership</span>
             </div>
-            <a class="nav-item" onclick="loadDoc('Behavioral_Leadership/Behavioral_Leadership_Guide.md')">Behavioral Interview Guide</a>
+            <a class="nav-item" onclick="loadDoc('Behavioral_Leadership/Behavioral_Leadership_Guide.md')">Behavioral
+                Interview Guide</a>
         </div>
 
         <div class="nav-section">
@@ -376,8 +385,10 @@
                 <span class="nav-section-icon">💻</span>
                 <span>Core Languages</span>
             </div>
-            <a class="nav-item" onclick="loadDoc('Core_Language_Fundamentals/JavaScript_Fundamentals.md')">JavaScript Fundamentals</a>
-            <a class="nav-item" onclick="loadDoc('Core_Language_Fundamentals/TypeScript_Fundamentals.md')">TypeScript Fundamentals</a>
+            <a class="nav-item" onclick="loadDoc('Core_Language_Fundamentals/JavaScript_Fundamentals.md')">JavaScript
+                Fundamentals</a>
+            <a class="nav-item" onclick="loadDoc('Core_Language_Fundamentals/TypeScript_Fundamentals.md')">TypeScript
+                Fundamentals</a>
         </div>
 
         <div class="nav-section">
@@ -395,7 +406,8 @@
                 <span>Backend Engineering</span>
             </div>
             <a class="nav-item" onclick="loadDoc('Backend_Engineering/NodeJS_Deep_Dive.md')">Node.js Deep Dive</a>
-            <a class="nav-item" onclick="loadDoc('Backend_Engineering/Express_NestJS_Guide.md')">Express & Nest.js Guide</a>
+            <a class="nav-item" onclick="loadDoc('Backend_Engineering/Express_NestJS_Guide.md')">Express & Nest.js
+                Guide</a>
         </div>
 
         <div class="nav-section">
@@ -403,8 +415,10 @@
                 <span class="nav-section-icon">🏗️</span>
                 <span>System Design</span>
             </div>
-            <a class="nav-item" onclick="loadDoc('System_Design_Architecture/System_Design_Guide.md')">System Design Guide</a>
-            <a class="nav-item" onclick="loadDoc('System_Design_Architecture/Database_Design_Guide.md')">Database Design Guide</a>
+            <a class="nav-item" onclick="loadDoc('System_Design_Architecture/System_Design_Guide.md')">System Design
+                Guide</a>
+            <a class="nav-item" onclick="loadDoc('System_Design_Architecture/Database_Design_Guide.md')">Database Design
+                Guide</a>
         </div>
 
         <div class="nav-section">
@@ -420,7 +434,8 @@
                 <span class="nav-section-icon">📐</span>
                 <span>Design Patterns</span>
             </div>
-            <a class="nav-item" onclick="loadDoc('Design_Patterns_Principles/Design_Patterns_Guide.md')">Design Patterns & SOLID</a>
+            <a class="nav-item" onclick="loadDoc('Design_Patterns_Principles/Design_Patterns_Guide.md')">Design Patterns
+                & SOLID</a>
         </div>
 
         <div class="nav-section">
@@ -428,7 +443,8 @@
                 <span class="nav-section-icon">🧮</span>
                 <span>Algorithms</span>
             </div>
-            <a class="nav-item" onclick="loadDoc('Algorithms_Data_Structures/Algorithms_Guide.md')">Algorithms & Data Structures</a>
+            <a class="nav-item" onclick="loadDoc('Algorithms_Data_Structures/Algorithms_Guide.md')">Algorithms & Data
+                Structures</a>
         </div>
     </div>
 
@@ -443,6 +459,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        // Get base path for GitHub Pages
+        const getBasePath = () => {
+            const path = window.location.pathname;
+            // If deployed on GitHub Pages (e.g., /Explainly/), use that as base
+            // If local or root domain, use empty string
+            const match = path.match(/^\/([^\/]+)\//);
+            return match ? `/${match[1]}/` : '/';
+        };
+
+        const BASE_PATH = getBasePath();
+
         // Initialize marked with options
         marked.setOptions({
             breaks: true,
@@ -457,9 +484,12 @@
             content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Loading content...</p></div>';
 
             try {
-                const response = await fetch(path);
+                // Construct full path with base
+                const fullPath = BASE_PATH === '/' ? path : BASE_PATH + path;
+
+                const response = await fetch(fullPath);
                 if (!response.ok) throw new Error('Document not found');
-                
+
                 const markdown = await response.text();
                 const html = marked.parse(markdown);
                 content.innerHTML = html;
@@ -519,7 +549,7 @@
             if (window.innerWidth <= 768) {
                 const sidebar = document.getElementById('sidebar');
                 const toggle = document.querySelector('.mobile-toggle');
-                
+
                 if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
                     sidebar.classList.remove('open');
                 }
@@ -527,4 +557,5 @@
         });
     </script>
 </body>
+
 </html>
