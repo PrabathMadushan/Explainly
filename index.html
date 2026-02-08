@@ -70,6 +70,14 @@
             font-size: 0.875rem;
         }
 
+        .mobile-menu-icon {
+            display: none;
+        }
+
+        .desktop-menu-text {
+            display: inline;
+        }
+
         /* Sidebar */
         .sidebar {
             position: fixed;
@@ -288,6 +296,7 @@
 
             .content {
                 padding: 1rem;
+                padding-top: 2rem;
                 border-radius: 0;
                 border: none;
                 border-top: 1px solid var(--border);
@@ -295,11 +304,29 @@
             }
 
             .header {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
             }
 
             .header h1 {
+                font-size: 1rem;
+            }
+
+            .header-subtitle {
+                display: none;
+            }
+
+            .mobile-toggle {
+                padding: 0.5rem;
+                min-width: 40px;
                 font-size: 1.25rem;
+            }
+
+            .desktop-menu-text {
+                display: none;
+            }
+
+            .mobile-menu-icon {
+                display: inline;
             }
 
             .content h1 {
