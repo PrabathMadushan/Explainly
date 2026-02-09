@@ -1,0 +1,90 @@
+⭐ Behavioral Story – Influencing Tech Decisions in a Startup
+Story Title
+
+Guiding a Non-Technical Founder Toward the Right Tech Stack
+
+Project / Startup Context
+
+I joined an early-stage startup where the founder/CEO was a strong entrepreneur with deep experience in electronics and embedded systems, but limited exposure to large-scale software systems.
+
+Because it was a startup, cost control was critical — money saved on internal projects directly helped fund future work and increased overall runway.
+
+S – Situation
+
+After I joined, I shared my experience from the IEEE Innovation Nation project, where we successfully deployed a production system on Firebase with zero hosting cost.
+
+The founder was excited by the idea of 0-cost deployment and initially believed Firebase could be used as a default solution for all applications.
+
+However, the product we were planning involved:
+
+A growing number of users
+
+Complex queries
+
+Data access patterns that would not scale well with Firestore’s querying limitations
+
+This created a tension between cost savings and long-term scalability.
+
+T – Task
+
+My responsibility was to:
+
+Help the founder understand the technical limitations of Firestore
+
+Balance short-term cost savings with long-term product health
+
+Recommend a more suitable tech stack without dismissing the cost concerns
+
+A – Action
+
+Instead of rejecting Firebase outright, I took a collaborative and data-driven approach:
+
+I explained how Firestore querying works, including indexing limits and query constraints
+
+I demonstrated how read-heavy and complex queries could increase costs and reduce flexibility over time
+
+I compared Firebase with alternative stacks better suited for:
+
+Relational querying
+
+Analytics
+
+Long-term scalability
+
+I suggested using Firebase selectively, only where it made sense (e.g., auth, small modules), rather than as a universal backend
+
+We had multiple discussions where I translated technical risks into business impact: maintenance cost, feature limits, and future migration risk
+
+R – Result (Measurable Impact)
+
+As a result:
+
+The startup adopted a more appropriate backend stack for query-heavy applications
+
+Firebase was not misused as a one-size-fits-all solution
+
+We avoided costly refactors and data-model limitations later
+
+Money saved from correct architectural choices helped fund other client projects
+
+The founder gained clearer visibility into how software architecture affects revenue and scalability
+
+This experience taught me how to communicate technical trade-offs to non-technical stakeholders and align engineering decisions with business goals.
+
+🎤 60-Second Spoken Version
+
+“When I joined a startup, the founder was an entrepreneur with strong embedded-systems knowledge but limited software background. After I shared my Innovation Nation experience with zero-cost Firebase deployment, he initially wanted to use Firebase everywhere. I had to explain that while Firebase is great for some use cases, Firestore has querying limits that wouldn’t scale for user-heavy applications. Through several discussions, I translated the technical risks into business impact—like future refactor cost and feature limitations. Eventually, we chose a more suitable backend stack and used Firebase only where it made sense, which saved money and avoided long-term issues.”
+
+🔥 Why Interviewers Will Love This Story
+
+This shows:
+
+✅ Communication with non-technical leadership
+
+✅ Business-aware engineering decisions
+
+✅ Standing your ground without ego
+
+✅ Startup mindset (cost vs scalability)
+
+✅ Real influence, not just coding

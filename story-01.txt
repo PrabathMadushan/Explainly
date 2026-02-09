@@ -1,0 +1,64 @@
+⭐ Behavioral Story – Innovation Nation (IEEE)
+Story Title
+
+Eliminating Hosting Costs Through an Offline-First Architecture
+
+S – Situation
+
+I worked on the Innovation Nation platform, a startup-focused project conducted under IEEE.
+The project had very limited funding, and during early discussions the team considered using EC2 or VPS hosting, which was too expensive for the scale of the platform.
+
+T – Task
+
+My responsibility was to propose a cost-effective hosting solution that could reliably support the platform without creating ongoing infrastructure costs.
+
+A – Action
+
+I suggested moving away from traditional servers and using Firebase instead.
+However, I identified a key risk: Firestore read and write costs could still become expensive if not designed carefully.
+
+To solve this, I:
+
+Designed an offline-first architecture
+
+Enabled Firestore persistence, so most data is stored and read locally
+
+Structured the application to sync only when actual data changes
+
+Avoided unnecessary real-time listeners to minimize reads and writes
+
+Optimized the data model based on real usage patterns
+
+Since the platform had around 50 teams with a maximum of 10 members per team, this approach was more than sufficient without over-engineering.
+
+R – Result
+
+As a result:
+
+Hosting cost was reduced by 100%
+
+The entire platform ran on Firebase Free Tier
+
+There were no performance or data consistency issues
+
+The solution fully met the project’s requirements within budget
+
+This experience taught me how architecture decisions directly affect cost, and how designing around actual usage can completely eliminate unnecessary infrastructure expenses.
+
+🎯 Why this story works extremely well
+
+Interviewers hear:
+
+✅ Problem solving
+
+✅ Cost optimization
+
+✅ System design thinking
+
+✅ Ownership & initiative
+
+✅ Real impact (100% cost reduction)
+
+⚡ 60-Second Spoken Version (Very Important)
+
+“During the IEEE Innovation Nation project, we needed a hosting solution but EC2 and VPS options were too expensive. I proposed using Firebase, but to avoid Firestore read/write costs, I designed an offline-first architecture using Firestore persistence. The app syncs only when data changes, which drastically reduced database operations. Because the platform had a limited number of teams and users, we were able to run the entire system on Firebase’s free tier, reducing hosting cost to zero without any performance issues.”

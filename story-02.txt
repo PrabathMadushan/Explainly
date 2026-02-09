@@ -1,0 +1,56 @@
+⭐ Project Overview — OversightEMS
+
+OversightEMS – AI‑Powered Energy Intelligence Platform
+ is an AI-powered energy management platform that helps users monitor, analyze, and optimize energy use in real time — whether it’s for homes, factories, microgrids, or distributed energy resources like solar, wind or battery systems.
+The platform brings clarity and actionable insights into energy consumption and production, enabling smarter and more efficient energy decisions.
+
+In energy management systems (EMS), real-time visualization of how energy is produced, stored and consumed — including renewable sources like solar and wind — is a key component for optimizing performance and cost-efficiency.
+
+⭐ Behavioral Story – Improving Real-Time 3D Simulation Performance
+Story Title
+
+Transforming Web-Based 3D Energy Grid Simulation for OversightEMS
+
+S – Situation
+
+On OversightEMS, the team wanted to visualize a real-time 3D simulation of an energy grid — showing solar production, wind generation, battery status, and other distributed energy assets — directly within the platform, so users could see how their system behaved in real time.
+
+Their first approach used Unity3D embedded in the web app, but this solution was slow and laggy even on powerful desktop machines and unusable on mobile devices, undermining the goal of real-time insight for all users.
+
+T – Task
+
+Although I wasn’t the active developer of the product, they asked me to help solve this performance and usability problem, especially so the 3D visualization could work smoothly in browsers and on phones, without relying on heavy Unity builds.
+
+A – Action
+
+I reviewed the existing architecture and identified that:
+
+Unity’s web builds were too heavy and slow for consistent real-time visualization
+
+Users needed a lightweight web-native 3D solution to support mobile and desktop
+
+To fix this, I:
+
+Re-created the 3D energy grid model in Blender
+
+Exported it into a web-friendly format
+
+Used Three.js with React Three Fiber to render the scene in the web application
+
+Optimized the scene graph and rendering pipeline to make updates efficient and smooth
+
+This approach allowed the 3D model to be rendered directly in the browser environment without bulky builds, enabling faster runtime performance.
+
+R – Result
+
+Because of the redesigned solution:
+
+The real-time 3D energy simulation ran smoothly on desktops and mobile devices
+
+Real-time data updates could be visualized without lag
+
+The platform became far more responsive and accessible to users
+
+The need for heavy Unity web deployment was eliminated
+
+This experience taught me how to evaluate and replace inefficient architectural choices with web-native solutions that scale better across devices, especially for real-time simulation and complex rendering.

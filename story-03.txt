@@ -1,0 +1,90 @@
+⭐ Behavioral Story – Yogeshwari Platform (Responsive SVG Frame)
+Story Title
+
+Designing a Fully Responsive SVG Frame for an Immersive CRT-Style Ticketing Platform
+
+Project Context (Important for Interviewers)
+
+The Yogeshwari platform is not a typical ticket-booking website.
+It is an immersive entry point to a music-driven narrative experience — blending storytelling, visuals, and signals to lead users toward a live concert set in a forgotten shipyard.
+
+The platform intentionally uses a CRT / retro terminal aesthetic, acting as a gateway into a larger experience involving zones, hidden progression, and narrative discovery.
+What users see on the site is only part of the story — the rest unfolds based on what they choose to uncover.
+
+S – Situation
+
+As part of this platform, the client wanted a custom SVG frame around the entire page to reinforce the old-CRT, signal-driven aesthetic.
+
+The challenge was that the frame:
+
+Had to wrap the entire viewport
+
+Had to respond smoothly to both width and height changes
+
+Could not distort across screen sizes
+
+Had to work with dynamic content inside the page
+
+The team struggled to make the frame responsive — resizing caused stretching, misalignment, and inconsistent stroke thickness.
+
+T – Task
+
+I was asked to help design a solution that would make the frame:
+
+Fully responsive across devices
+
+Visually consistent with the CRT-style design
+
+Stable under layout and content changes
+
+A – Action
+
+Instead of building a single large SVG, I re-thought the problem as a layout and composition challenge:
+
+I designed the page using CSS Grid, splitting the frame into modular edge and corner sections
+
+Each section renders its own SVG using a consistent viewBox (0 0 100 100)
+
+I used preserveAspectRatio="none" so each SVG scales precisely to its grid cell
+
+I applied vectorEffect="non-scaling-stroke" to ensure border thickness remains constant at all sizes
+
+The main application content lives in the center grid area, isolated from the frame logic
+
+This modular structure allowed the frame to resize without calculations, listeners, or layout hacks
+
+R – Result (Measurable Impact)
+
+The final solution delivered clear, measurable results:
+
+✅ Works smoothly on mobile, tablet, laptop, and large desktop
+
+✅ Tested across 4+ responsive breakpoints with zero visual distortion
+
+✅ Frame scales with both width and height changes
+
+✅ Stroke thickness remains visually consistent at all resolutions
+
+✅ No performance impact — all SVGs render natively in the browser
+
+✅ The team was unblocked and able to ship the platform with the intended visual identity intact
+
+This approach turned a visually complex requirement into a maintainable, scalable system, while preserving the artistic intent of the experience.
+
+🎤 60-Second Spoken Version (Very Interview-Friendly)
+
+“Yogeshwari is an immersive concert ticketing platform with a CRT-style aesthetic, where the UI itself is part of the storytelling. The team needed a full-screen SVG frame that stayed responsive to both width and height, but the frame kept breaking across screen sizes. I solved this by splitting the frame into modular SVG sections using CSS Grid. Each piece scales independently using a fixed viewBox and non-scaling strokes, so the frame stays consistent across mobile, tablet, and desktop. The final result worked across four breakpoints with zero distortion and no performance impact.”
+
+🔥 What This Story Proves to Interviewers
+
+✅ Advanced responsive design thinking
+
+✅ Deep understanding of SVG behavior
+
+✅ Ability to translate artistic vision into engineering reality
+
+✅ Collaboration and problem-solving without ownership conflict
+
+✅ Frontend architecture beyond basic layouts
+
+This is not a junior story. This is mid-to-senior frontend level thinking.
